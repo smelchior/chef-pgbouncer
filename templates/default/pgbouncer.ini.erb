@@ -71,8 +71,9 @@ server_reset_query = <%= @node['pgbouncer']['server_reset_query'] %>
 ; in startup packet.  Newer JDBC versions require the
 ; extra_float_digits here.
 ;
-;ignore_startup_parameters = extra_float_digits
-
+<% if @node['pgbouncer']['ignore_startup_parameters'] %>
+ignore_startup_parameters = <%= @node['pgbouncer']['ignore_startup_parameters'] %>
+<% end %>
 ;
 ; When taking idle server into use, this query is ran first.
 ;   SELECT 1
