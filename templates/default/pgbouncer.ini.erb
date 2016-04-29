@@ -143,6 +143,10 @@ log_pooler_errors = <%= @node['pgbouncer']['log_pooler_errors'] %>
 ;; stay unused in this many seconds.
 ; autodb_idle_timeout = 3600
 
+<% if @node['pgbouncer']['query_wait_timeout'] %>
+query_wait_timeout = <%= @node['pgbouncer']['query_wait_timeout'] %>
+<% end %>
+
 ;;;
 ;;; Low-level tuning options
 ;;;
